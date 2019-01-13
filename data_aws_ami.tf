@@ -4,7 +4,7 @@ data "aws_ami" "base_ami" {
 
   filter {
     name   = "name"
-    values = ["${var.linux_distribution}-BASE-v${var.ami_version}-*"]
+    values = ["${upper(var.linux_distribution)}-BASE-v${var.ami_version}-*"]
   }
 
   owners = ["${var.ami_owner_account}"]
