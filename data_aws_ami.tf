@@ -1,11 +1,10 @@
-# Create test instance with ssm agent installed
 # Find the right image pre built via packer
-data "aws_ami" "rhel_base" {
+data "aws_ami" "base_ami" {
   most_recent = true
 
   filter {
     name   = "name"
-    values = ["RHEL-BASE-${var.ami_version}-*"]
+    values = ["${var.linux_distribution}-BASE-v${var.ami_version}-*"]
   }
 
   owners = ["${var.ami_owner_account}"]
