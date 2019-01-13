@@ -1,8 +1,8 @@
 variable "vpc_id" {}
-variable "ssh_public_key" {}
 variable "instance_type" {}
 variable "ssm_standard_role" {}
 variable "subnet_id" {}
+variable "key_name" {}
 variable "aws_region" {}
 variable "ssm_tag_name" {}
 variable "ssm_tag_value" {}
