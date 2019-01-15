@@ -1,6 +1,7 @@
 # Instance Security group
 resource "aws_security_group" "instance_ssh_access" {
-  description = "Allow SSH to instance with ssm agent"
+  name        = "${upper(var.environment)}-${upper(var.account_name)}-PRI-BASTION-SG"
+  description = "Managed by Terraform"
   vpc_id      = "${var.vpc_id}"
 
   ingress {
@@ -19,6 +20,5 @@ resource "aws_security_group" "instance_ssh_access" {
   }
 
   tags = "${merge(var.common_tags,
-    map("Name", "${var.ssm_tag_name}")
-  )}"
+    map("Name", "${upper(var.environment)}-${upper(var.account_name)}-PRI-BASTION-SG"))}"
 }
