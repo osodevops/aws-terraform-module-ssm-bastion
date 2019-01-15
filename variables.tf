@@ -1,16 +1,15 @@
-variable "vpc_id" {}
-variable "instance_type" {}
-variable "ssm_standard_role" {}
-variable "subnet_id" {}
-variable "key_name" {}
-variable "aws_region" {}
-variable "ssm_tag_name" {}
-variable "ssm_tag_value" {}
+variable "account_name" {}
+variable "allowed_ips" {}
 variable "ami_owner_account" {}
 variable "ami_version" {}
+variable "aws_region" {}
 variable "environment" {}
-variable "allowed_ips" {}
+variable "instance_type" {}
+variable "key_name" {}
 variable "linux_distribution" {}
+variable "ssm_standard_role" {}
+variable "subnet_id" {}
+variable "vpc_id" {}
 
 variable "common_tags" {
   type = "map"

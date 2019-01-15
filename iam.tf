@@ -8,7 +8,7 @@ resource "aws_iam_role_policy_attachment" "ssm_standard" {
   policy_arn = "${var.ssm_standard_role}"
 }
 
-resource "aws_iam_instance_profile" "ssm_poc_instance_profile" {
-  name = "ssm-poc-instance-profile"
+resource "aws_iam_instance_profile" "ssm_bastion_instance_profile" {
+  name = "ssm-bastion-instance-profile"
   role = "${aws_iam_role.ssm_role.name}"
 }
