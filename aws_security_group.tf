@@ -2,7 +2,7 @@
 resource "aws_security_group" "instance_ssh_access" {
   name        = "${upper(var.environment)}-${upper(var.account_name)}-PRI-BASTION-SG"
   description = "Managed by Terraform"
-  vpc_id      = "${var.vpc_id}"
+  vpc_id      = var.vpc_id
 
   ingress {
     from_port   = 22
@@ -19,6 +19,11 @@ resource "aws_security_group" "instance_ssh_access" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = "${merge(var.common_tags,
-    map("Name", "${upper(var.environment)}-${upper(var.account_name)}-PRI-BASTION-SG"))}"
+  tags = merge(
+    var.common_tags,
+    {
+      "Name" = "${upper(var.environment)}-${upper(var.account_name)}-PRI-BASTION-SG"
+    },
+  )
 }
+

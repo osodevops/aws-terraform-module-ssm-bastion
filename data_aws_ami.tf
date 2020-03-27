@@ -7,5 +7,6 @@ data "aws_ami" "base_ami" {
     values = ["${upper(var.linux_distribution)}-BASE-v${var.ami_version}-*"]
   }
 
-  owners = ["${var.ami_owner_account}"]
+  owners = [var.ami_owner_account]
 }
+
